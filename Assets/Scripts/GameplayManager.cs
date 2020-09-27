@@ -6,6 +6,9 @@ using UnityStandardAssets.Vehicles.Car;
 
 public class GameplayManager : MonoBehaviour
 {
+    public Text CountdownText;
+
+
     private CarController m_CarController; // Reference to car we are controlling
 
     
