@@ -18,9 +18,11 @@ public class GameplayManager : MonoBehaviour
 
     public CarController m_CarController; // Reference to car we are controlling
 
+    private Timer timer;
     
     void Start()
     {
+        timer = GetComponentInChildren<Timer>(); 
         m_CarController.FullTorqueOverAllWheels = 0;
         StartCoroutine(Countdown(3));
     }
@@ -53,6 +55,8 @@ public class GameplayManager : MonoBehaviour
     void StartGame()
     {
         // UNLOCK CAR!
+        timer.TimerText = Lap1TimerText;
+        timer.StartTimer();
         
     }
 }
