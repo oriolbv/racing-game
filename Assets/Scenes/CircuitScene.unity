@@ -3945,6 +3945,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CountdownText: {fileID: 1417248389}
+  Lap1TimerText: {fileID: 1588825180}
+  Lap2TimerText: {fileID: 654411773}
+  Lap3TimerText: {fileID: 1571372010}
   m_CarController: {fileID: 50269843}
 --- !u!114 &1921460148
 MonoBehaviour:

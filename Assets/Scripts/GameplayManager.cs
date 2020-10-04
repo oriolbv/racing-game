@@ -7,7 +7,13 @@ using UnityStandardAssets.Vehicles.Car;
 
 public class GameplayManager : MonoBehaviour
 {
+    [Header("HUD")]
     public Text CountdownText;
+
+    // Lap timers
+    public Text Lap1TimerText;
+    public Text Lap2TimerText;
+    public Text Lap3TimerText;
 
 
     public CarController m_CarController; // Reference to car we are controlling
