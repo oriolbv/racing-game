@@ -46,6 +46,7 @@ namespace UnityStandardAssets.Vehicles.Car
         private float m_CurrentTorque;
         private Rigidbody m_Rigidbody;
         private const float k_ReversingThreshold = 0.01f;
+        private bool _isInTerrain;
 
         public bool Skidding { get; private set; }
         public float BrakeInput { get; private set; }
@@ -69,6 +70,8 @@ namespace UnityStandardAssets.Vehicles.Car
 
             m_Rigidbody = GetComponent<Rigidbody>();
             m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl * m_FullTorqueOverAllWheels);
+
+            _isInTerrain = false;
         }
 
 
@@ -363,6 +366,26 @@ namespace UnityStandardAssets.Vehicles.Car
             }
             return false;
         }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.layer != 9 && !_isInTerrain && other.gameObject.tag != "Start")
+            {
+                Debug.Log("TERRAIN!");
+                _isInTerrain = true;
+                FullTorqueOverAllWheels = 500;
+            }
+            else if (other.gameObject.layer == 9 && _isInTerrain)
+            {
+                Debug.Log("CIRCUIT!");
+                _isInTerrain = false;
+                FullTorqueOverAllWheels = 2500;
+            }
+        }
+        //void OnTruEnter(Collision collision)
+        //{
+            
+        //}
 
         #region Properties
 

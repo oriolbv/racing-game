@@ -17,7 +17,7 @@ public class GameplayManager : Singleton<GameplayManager>
     public Text Lap3TimerText;
     private Timer timer;
 
-    private int _finalLapTimes;
+    private float[] _finalLapTimes;
 
     public CarController m_CarController; // Reference to car we are controlling
 
@@ -26,7 +26,7 @@ public class GameplayManager : Singleton<GameplayManager>
     void Start()
     {
         timer = GetComponentInChildren<Timer>();
-
+        _finalLapTimes = new float[3];
 
         m_CarController.FullTorqueOverAllWheels = 0;
         StartCoroutine(Countdown(3));
@@ -70,13 +70,25 @@ public class GameplayManager : Singleton<GameplayManager>
                 timer.TimerText = Lap1TimerText;
                 break;
             case 2:
+                _finalLapTimes[0] = timer.ActualLapTime;
                 timer.TimerText = Lap2TimerText;
+                timer.ResetTimer();
                 break;
             case 3:
+                _finalLapTimes[1] = timer.ActualLapTime;
                 timer.TimerText = Lap3TimerText;
+                timer.ResetTimer();
+                break;
+            case 4:
+                // End race
+                _finalLapTimes[2] = timer.ActualLapTime;
+                timer.StopTimer();
+                Debug.Log("Race END!!!");
                 break;
         }
-        timer.StartTimer();
-
+        if (lapNumber <= 3)
+        {
+            timer.StartTimer();
+        }
     }
 }

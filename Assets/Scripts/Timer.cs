@@ -26,6 +26,16 @@ public class Timer : MonoBehaviour
         _bStarted = true;
     }
 
+    public void StopTimer()
+    {
+        _bStarted = false;
+    }
+
+    public void ResetTimer()
+    {
+        _time = 0;
+    }
+
     #region Properties
 
     public Text TimerText
@@ -37,6 +47,14 @@ public class Timer : MonoBehaviour
         set
         {
             _timerText = value;
+        }
+    }
+
+    public float ActualLapTime
+    {
+        get
+        {
+            return _time;
         }
     }
 
