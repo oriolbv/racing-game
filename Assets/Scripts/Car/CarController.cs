@@ -367,21 +367,7 @@ namespace UnityStandardAssets.Vehicles.Car
             return false;
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.gameObject.layer != 9 && !_isInTerrain && other.gameObject.tag != "Start")
-            {
-                Debug.Log("TERRAIN!");
-                _isInTerrain = true;
-                FullTorqueOverAllWheels = 500;
-            }
-            else if (other.gameObject.layer == 9 && _isInTerrain)
-            {
-                Debug.Log("CIRCUIT!");
-                _isInTerrain = false;
-                FullTorqueOverAllWheels = 2500;
-            }
-        }
+        
         //void OnTruEnter(Collision collision)
         //{
             

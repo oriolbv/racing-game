@@ -3061,6 +3061,11 @@ PrefabInstance:
       propertyPath: m_SpeedType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1042170551011280520, guid: 0e7ee4df08df88c4880f43398f9ad2c2,
+        type: 3}
+      propertyPath: m_CarController
+      value: 
+      objectReference: {fileID: 50269843}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e7ee4df08df88c4880f43398f9ad2c2, type: 3}
 --- !u!4 &1228069178 stripped

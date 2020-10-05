@@ -6224,6 +6224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 400048}
   - component: {fileID: 14600006}
+  - component: {fileID: 1042170551011280520}
   - component: {fileID: 8200016}
   - component: {fileID: 11400020}
   m_Layer: 0
@@ -6277,6 +6278,18 @@ WheelCollider:
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
   m_Enabled: 1
+--- !u!114 &1042170551011280520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702cc46a13f77474ebf5345f6090f83f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &8200016
 AudioSource:
   m_ObjectHideFlags: 0
