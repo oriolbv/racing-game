@@ -5,31 +5,36 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityStandardAssets.Vehicles.Car;
 
-public class GameplayManager : MonoBehaviour
+public class GameplayManager : Singleton<GameplayManager>
 {
     [Header("HUD")]
     public Text CountdownText;
 
     // Lap timers
+    
     public Text Lap1TimerText;
     public Text Lap2TimerText;
     public Text Lap3TimerText;
+    private Timer timer;
 
+    private int _finalLapTimes;
 
     public CarController m_CarController; // Reference to car we are controlling
 
-    private Timer timer;
     
+
     void Start()
     {
-        timer = GetComponentInChildren<Timer>(); 
+        timer = GetComponentInChildren<Timer>();
+
+
         m_CarController.FullTorqueOverAllWheels = 0;
         StartCoroutine(Countdown(3));
     }
 
     void Update()
     {
-        
+
     }
 
     IEnumerator Countdown(int seconds)
@@ -54,9 +59,24 @@ public class GameplayManager : MonoBehaviour
 
     void StartGame()
     {
-        // UNLOCK CAR!
-        timer.TimerText = Lap1TimerText;
-        timer.StartTimer();
         
+    }
+
+    public void nextLap(int lapNumber)
+    {
+        switch (lapNumber)
+        {
+            case 1:
+                timer.TimerText = Lap1TimerText;
+                break;
+            case 2:
+                timer.TimerText = Lap2TimerText;
+                break;
+            case 3:
+                timer.TimerText = Lap3TimerText;
+                break;
+        }
+        timer.StartTimer();
+
     }
 }
