@@ -367,12 +367,6 @@ namespace UnityStandardAssets.Vehicles.Car
             return false;
         }
 
-        
-        //void OnTruEnter(Collision collision)
-        //{
-            
-        //}
-
         #region Properties
 
         public float FullTorqueOverAllWheels

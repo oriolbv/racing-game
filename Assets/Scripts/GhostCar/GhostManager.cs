@@ -30,7 +30,7 @@ public class GhostManager : MonoBehaviour
 
 
     #region RECORD GHOST DATA
-    void StartRecording()
+    public void StartRecording()
     {
         Debug.Log("START RECORDING");
         shouldRecord = true;
@@ -44,7 +44,7 @@ public class GhostManager : MonoBehaviour
         bestLapSO.Reset();
     }
 
-    void StopRecording()
+    public void StopRecording()
     {
         Debug.Log("STOP RECORDING");
         shouldRecord = false;
@@ -52,7 +52,7 @@ public class GhostManager : MonoBehaviour
     #endregion
 
     #region PLAY GHOST DATA
-    void StartPlaying()
+    public void StartPlaying()
     {
         Debug.Log("START PLAYING");
         shouldPlay = true;
@@ -65,17 +65,17 @@ public class GhostManager : MonoBehaviour
 
         // Desactivamos el control del coche
         carToPlay.GetComponent<CarController>().enabled = false;
-        carToPlay.GetComponent<CarUserControl>().enabled = false;
+        //carToPlay.GetComponent<CarUserControl>().enabled = false;
     }
 
-    void StopPlaying()
+    public void StopPlaying()
     {
         Debug.Log("STOP PLAYING");
         shouldPlay = false;
 
         // Devolvemos el control al coche por si fuera necesario (opcional)
         carToPlay.GetComponent<CarController>().enabled = true;
-        carToPlay.GetComponent<CarUserControl>().enabled = true;
+        //carToPlay.GetComponent<CarUserControl>().enabled = true;
 
     }
     #endregion
