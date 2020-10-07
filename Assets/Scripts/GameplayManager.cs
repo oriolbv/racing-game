@@ -68,13 +68,11 @@ public class GameplayManager : Singleton<GameplayManager>
         {
             case 1:
                 timer.TimerText = Lap1TimerText;
-                this.GetComponent<GhostManager>().StartRecording();
                 break;
             case 2:
                 _finalLapTimes[0] = timer.ActualLapTime;
                 timer.TimerText = Lap2TimerText;
                 timer.ResetTimer();
-                this.GetComponent<GhostManager>().StartPlaying();
                 break;
             case 3:
                 _finalLapTimes[1] = timer.ActualLapTime;

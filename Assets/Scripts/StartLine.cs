@@ -20,6 +20,14 @@ public class StartLine : Singleton<StartLine>
             Debug.Log("VOLTA!");
             _actualLap += 1;
             GameplayManager.Instance.nextLap(_actualLap);
+            if (_actualLap == 1) 
+            {
+                GameplayManager.Instance.GetComponent<GhostManager>().StartRecording(); 
+            }
+            else 
+            {
+                GameplayManager.Instance.GetComponent<GhostManager>().StartPlaying();
+            }
         }
     }
 
