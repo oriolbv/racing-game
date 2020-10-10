@@ -1,3 +1,3 @@
 # Racing game
 
-Racing game developed in Unity3D engine, using Terrains and EasyRoad3D. 
+Racing game for Windows 10 developed in Unity3D engine, using Terrains and EasyRoad3D. 
