@@ -18,18 +18,13 @@ public class StartLine : Singleton<StartLine>
         if (other.gameObject.name.Equals("Car"))
         {
             GameplayManager.Instance.GetComponent<GhostManager>().StopRecording();
-            GameplayManager.Instance.GetComponent<GhostManager>().StartRecording();
-            Debug.Log("VOLTA!");
+            // GameplayManager.Instance.GetComponent<GhostManager>().StartRecording();
             _actualLap += 1;
             GameplayManager.Instance.nextLap(_actualLap);
-            else if (_actualLap >= 2) 
+            if (_actualLap >= 2) 
             {
                 GameplayManager.Instance.GetComponent<GhostManager>().StopPlaying();
                 GameplayManager.Instance.GetComponent<GhostManager>().StartPlaying();
-            }
-            else
-            {
-
             }
         } 
         else if (other.gameObject.name.Equals("GhostCar"))
