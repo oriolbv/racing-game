@@ -113,8 +113,12 @@ public class GhostManager : MonoBehaviour
                 lastSamplePosition = nextPosition;
                 lastSampleRotation = nextRotation;
 
-                // Cogemos los datos del scriptable object
-                bestLapSO.GetDataAt(currentSampleToPlay, out nextPosition, out nextRotation);
+                if (shouldPlay)
+                {
+                    // Cogemos los datos del scriptable object
+                    bestLapSO.GetDataAt(currentSampleToPlay, out nextPosition, out nextRotation);
+                }
+                
 
                 // Dejamos el tiempo extra entre una muestra y otra
                 currenttimeBetweenPlaySamples -= timeBetweenSamples;
@@ -126,7 +130,7 @@ public class GhostManager : MonoBehaviour
             // De cara a crear una interpolación suave entre la posición y rotación entre una muestra y la otra, 
             // calculamos a nivel de tiempo entre muestras el porcentaje en el que nos encontramos
             float percentageBetweenFrames = currenttimeBetweenPlaySamples / timeBetweenSamples;
-            Debug.Log(percentageBetweenFrames);
+            //Debug.Log(percentageBetweenFrames);
 
             // Aplicamos un lerp entre las posiciones y rotaciones de la muestra anterior y la siguiente según el procentaje actual.
             carToPlay.transform.position = Vector3.Slerp(lastSamplePosition, nextPosition, percentageBetweenFrames);

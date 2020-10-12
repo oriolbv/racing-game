@@ -754,6 +754,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GhostCar
       objectReference: {fileID: 0}
+    - target: {fileID: 100042, guid: 86991914144fba540a28c5a22dc18835, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 400050, guid: 86991914144fba540a28c5a22dc18835, type: 3}
       propertyPath: m_LocalPosition.x
       value: 259.86
@@ -764,7 +768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400050, guid: 86991914144fba540a28c5a22dc18835, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 156.91
+      value: 330
       objectReference: {fileID: 0}
     - target: {fileID: 400050, guid: 86991914144fba540a28c5a22dc18835, type: 3}
       propertyPath: m_LocalRotation.x
@@ -810,6 +814,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 86991914144fba540a28c5a22dc18835, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d51826f541cf7c045b647ce9b167be52, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86991914144fba540a28c5a22dc18835, type: 3}
 --- !u!1 &263299330 stripped
@@ -818,6 +826,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 263299329}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &263299331
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263299330}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &302490770
 MonoBehaviour:
   m_ObjectHideFlags: 0
