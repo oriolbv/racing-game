@@ -6,10 +6,13 @@ public class StartLine : ExtendedBehaviour
 {
 
     private int _actualLap;
+    private bool _ghostFinished;
+
     // Start is called before the first frame update
     void Start()
     {
         _actualLap = 0;
+        _ghostFinished = false;
     }
 
 
@@ -27,8 +30,11 @@ public class StartLine : ExtendedBehaviour
             }
             else
             {
-                GameplayManager.Instance.GetComponent<GhostManager>().StopPlaying();
-                GameplayManager.Instance.GetComponent<GhostManager>().StopRecording();
+                if (!_ghostFinished) 
+                {
+                    GameplayManager.Instance.GetComponent<GhostManager>().StopPlaying();
+                    GameplayManager.Instance.GetComponent<GhostManager>().StopRecording();
+                }
             }
             _actualLap += 1;
             GameplayManager.Instance.nextLap(_actualLap);
@@ -42,6 +48,7 @@ public class StartLine : ExtendedBehaviour
             GameplayManager.Instance.GetComponent<GhostManager>().StopPlaying();
             GameplayManager.Instance.GetComponent<GhostManager>().StopRecording();
             Destroy(other.gameObject);
+            _ghostFinished = true;
         }
     }
 

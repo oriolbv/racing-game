@@ -9,6 +9,13 @@ public class GhostLapData : ScriptableObject
     List<Vector3> carPositions;
     List<Quaternion> carRotations;
 
+
+    public void Awake()
+    {
+        Debug.Log("HOOOOOOOOLA");
+        carPositions = new List<Vector3>();
+        carRotations = new List<Quaternion>();
+    }
     public void AddNewData(Transform transform)
     {
         carPositions.Add(transform.position);
