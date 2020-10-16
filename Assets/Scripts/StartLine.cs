@@ -17,9 +17,6 @@ public class StartLine : ExtendedBehaviour
     {
         if (other.gameObject.name.Equals("Car"))
         {
-            //GameplayManager.Instance.GetComponent<GhostManager>().StopRecording();
-            // 
-            
             if (_actualLap == 0)
             {
                 GameplayManager.Instance.GetComponent<GhostManager>().StartRecording();
@@ -28,11 +25,14 @@ public class StartLine : ExtendedBehaviour
             {
                 GameplayManager.Instance.GetComponent<GhostManager>().StartPlaying();
             }
+            else
+            {
+                GameplayManager.Instance.GetComponent<GhostManager>().StopPlaying();
+                GameplayManager.Instance.GetComponent<GhostManager>().StopRecording();
+            }
             _actualLap += 1;
             GameplayManager.Instance.nextLap(_actualLap);
-
         }
-
     }
 
     private void OnTriggerEnter(Collider other)

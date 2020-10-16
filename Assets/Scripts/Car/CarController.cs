@@ -382,6 +382,18 @@ namespace UnityStandardAssets.Vehicles.Car
         }
 
 
+        public float Topspeed
+        {
+            get
+            {
+                return m_Topspeed;
+            }
+            set
+            {
+                m_Topspeed = value;
+            }
+        }
+
         #endregion
     }
 }
