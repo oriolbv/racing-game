@@ -2,10 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityStandardAssets.Vehicles.Car;
 
-public class GameplayManager : Singleton<GameplayManager>
+public class GameplayManager : ExtendedBehaviour
 {
     [Header("HUD")]
     public Text CountdownText;
@@ -18,15 +19,17 @@ public class GameplayManager : Singleton<GameplayManager>
     private Timer timer;
 
     private float[] _finalLapTimes;
+    private float _bestTime;
+
 
     public CarController m_CarController; // Reference to car we are controlling
-
-    
 
     void Start()
     {
         timer = GetComponentInChildren<Timer>();
         _finalLapTimes = new float[3];
+        _bestTime = 0;
+        GameData.Instance.initData();
 
         m_CarController.FullTorqueOverAllWheels = 0;
         StartCoroutine(Countdown(3));
@@ -71,6 +74,7 @@ public class GameplayManager : Singleton<GameplayManager>
                 break;
             case 2:
                 _finalLapTimes[0] = timer.ActualLapTime;
+                _bestTime = _finalLapTimes[0];
                 timer.TimerText = Lap2TimerText;
                 timer.ResetTimer();
                 break;
@@ -84,6 +88,7 @@ public class GameplayManager : Singleton<GameplayManager>
                 _finalLapTimes[2] = timer.ActualLapTime;
                 timer.StopTimer();
                 Debug.Log("Race END!!!");
+                EndGame();
                 break;
         }
         if (lapNumber <= 3)
@@ -91,4 +96,19 @@ public class GameplayManager : Singleton<GameplayManager>
             timer.StartTimer();
         }
     }
+
+    private void EndGame()
+    {
+        foreach(float laptime in _finalLapTimes)
+        {
+            if (laptime < _bestTime)
+            {
+                _bestTime = laptime;
+            }
+        }
+
+        GameData.Instance.BestTime = _bestTime;
+        SceneManager.LoadScene("EndScene");
+    }
+
 }

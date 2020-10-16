@@ -8,6 +8,8 @@ public class StartLine : ExtendedBehaviour
     private int _actualLap;
     private bool _ghostFinished;
 
+    public GameplayManager gameplayManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,22 +24,22 @@ public class StartLine : ExtendedBehaviour
         {
             if (_actualLap == 0)
             {
-                GameplayManager.Instance.GetComponent<GhostManager>().StartRecording();
+                gameplayManager.GetComponent<GhostManager>().StartRecording();
             }
             else if (_actualLap == 1) 
             {
-                GameplayManager.Instance.GetComponent<GhostManager>().StartPlaying();
+                gameplayManager.GetComponent<GhostManager>().StartPlaying();
             }
             else
             {
                 if (!_ghostFinished) 
                 {
-                    GameplayManager.Instance.GetComponent<GhostManager>().StopPlaying();
-                    GameplayManager.Instance.GetComponent<GhostManager>().StopRecording();
+                    gameplayManager.GetComponent<GhostManager>().StopPlaying();
+                    gameplayManager.GetComponent<GhostManager>().StopRecording();
                 }
             }
             _actualLap += 1;
-            GameplayManager.Instance.nextLap(_actualLap);
+            gameplayManager.nextLap(_actualLap);
         }
     }
 
@@ -45,8 +47,8 @@ public class StartLine : ExtendedBehaviour
     {
         if (other.gameObject.name.Equals("GhostCar"))
         {
-            GameplayManager.Instance.GetComponent<GhostManager>().StopPlaying();
-            GameplayManager.Instance.GetComponent<GhostManager>().StopRecording();
+            gameplayManager.GetComponent<GhostManager>().StopPlaying();
+            gameplayManager.GetComponent<GhostManager>().StopRecording();
             Destroy(other.gameObject);
             _ghostFinished = true;
         }
