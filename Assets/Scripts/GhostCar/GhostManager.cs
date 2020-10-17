@@ -120,13 +120,8 @@ public class GhostManager : MonoBehaviour
                     try
                     {
                         bestLapSO.GetDataAt(currentSampleToPlay, out nextPosition, out nextRotation);
-                    } catch(Exception e)
-                    {
-
-                    }
-                    
+                    } catch(Exception e) {}
                 }
-                
 
                 // Dejamos el tiempo extra entre una muestra y otra
                 currenttimeBetweenPlaySamples -= timeBetweenSamples;
