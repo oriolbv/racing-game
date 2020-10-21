@@ -10,8 +10,6 @@ The game consists of 3 different scenes:
 * CircuitScene
 * EndScene
 
-TitleScene and EndScene will be GUI pages to navigate inside the game.
-
-CircuitScene will be the one where the race and the game will take place.
+TitleScene and EndScene will be GUI pages to navigate inside the game and the CircuitScene will be the one where the race and the game will take place.
 
 You can find a 1 minute demo video in the repository folder "Demo".
